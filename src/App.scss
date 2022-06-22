@@ -1,0 +1,108 @@
+@mixin mobile-S {
+  @media (max-width:320px) {
+    @content
+  }
+}
+
+@mixin mobile-M{
+  @media (max-width:375px) {
+    @content
+  }
+}
+
+@mixin mobile-L{
+  @media (max-width:425px) {
+    @content
+  }
+}
+
+@mixin mobile-XL{
+  @media (max-width:576px) {
+    @content
+  }
+}
+
+
+
+.mainContainer{
+
+  .imagesContainer{
+
+    @include mobile-XL(){
+      display: grid;
+      grid-template: auto / 50% 50%;
+    }
+  
+  }
+
+  .cardContainer{
+    position: relative;
+    height: 370px;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 10px;
+
+    @include mobile-L{
+      height: 15pc;
+    }
+
+    .card{
+      height: 100%;
+    }
+
+    .cardImage{
+      width: 100%;
+      max-height: 350px;
+
+      @include mobile-L(){
+        max-height: 15pc;
+      }
+
+    }
+
+    .cardBody{
+      width: 100%;
+      opacity: 100%;
+      background-color: white;
+      position: absolute;
+      bottom: 0;
+      transition: 300ms;
+
+      .viewsCounter{
+        position: absolute;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        bottom: 0;
+        right: 0;
+      }
+
+      @include mobile-L(){
+        .description{
+          display: none;
+        }
+      }
+
+      @include mobile-S(){
+        .description{
+          display: none;
+        }
+      }
+
+    }
+
+  }
+
+  .card:hover{
+    .cardBody{
+      opacity: 0%;
+    }
+  }
+
+}
+
+
+.modalImage{
+  width: 100%
+}

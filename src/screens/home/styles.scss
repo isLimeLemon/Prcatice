@@ -1,0 +1,140 @@
+@mixin mobile-S {
+    @media (max-width:320px) {
+      @content
+    }
+  }
+  
+  @mixin mobile-M{
+    @media (max-width:375px) {
+      @content
+    }
+  }
+  
+  @mixin mobile-L{
+    @media (max-width:425px) {
+      @content
+    }
+  }
+  
+  @mixin mobile-XL{
+    @media (max-width:576px) {
+      @content
+    }
+  }
+  
+  
+  
+  .mainContainer{
+  
+    .homeTitle{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size:x-large;
+      padding: 10px;
+      background-color: #f2f2f2;
+      margin-bottom: 10px;
+
+      *{margin: 0px;}
+    }
+
+    .imagesContainer{
+  
+      @include mobile-XL(){
+        display: grid;
+        grid-template: auto / 50% 50%;
+      }
+    
+    }
+  
+    .cardContainer{
+      position: relative;
+      height: 370px;
+      cursor: pointer;
+      padding: 0;
+      margin-bottom: 10px;
+  
+      @include mobile-L{
+        height: 15pc;
+      }
+  
+      .card{
+        height: 100%;
+      }
+  
+      .cardImage{
+        width: 100%;
+        max-height: 350px;
+  
+        @include mobile-L(){
+          max-height: 15pc;
+        }
+  
+      }
+  
+      .cardBody{
+        width: 100%;
+        opacity: 100%;
+        background-color: white;
+        position: absolute;
+        bottom: 0;
+        transition: 300ms;
+  
+        .viewsCounter{
+          position: absolute;
+          padding: 5px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          bottom: 0;
+          right: 0;
+        }
+  
+        @include mobile-L(){
+          .description{
+            display: none;
+          }
+        }
+  
+        @include mobile-S(){
+          .description{
+            display: none;
+          }
+        }
+  
+      }
+  
+    }
+  
+    .card:hover{
+      .cardBody{
+        opacity: 0%;
+      }
+    }
+
+    .textAreaContainer{
+      width: 100%;
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      textarea{
+        width: 400px;
+        height: 150px;
+        padding: 0 5px;
+        border-radius: 5px;
+        margin-bottom: 5px;
+      }
+
+    }
+  
+  }
+  
+  
+  .modalImage{
+    width: 100%
+  }
